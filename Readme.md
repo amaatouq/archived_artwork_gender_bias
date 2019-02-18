@@ -97,3 +97,6 @@ meteor update empirica:core
   - [x] Probability of female artist name
   - [x] Related artists genders
 - [ ] Implement social interaction stage
+- [ ] Instructions
+- [ ] Demographic survey
+- [ ] Sample configurations

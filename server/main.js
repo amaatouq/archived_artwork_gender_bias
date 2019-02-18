@@ -17,7 +17,6 @@ Empirica.gameInit(game => {
 
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
-    player.set("score", 0);
   });
 
   const roundCount = game.treatment.roundCount || 10;

@@ -2,9 +2,9 @@ import React from "react";
 
 export default class TaskResponseText extends React.Component {
   handleChangeText = event => {
-    const value = Number(event.currentTarget.value);
-    const { player } = this.props;
-    player.round.set("value", value);
+    const value = event.currentTarget.value;
+    const { player, stage } = this.props;
+    player.round.set(stage.name, value);
   };
 
   handleSubmit = event => {
@@ -13,8 +13,8 @@ export default class TaskResponseText extends React.Component {
   };
 
   render() {
-    const { player } = this.props;
-    const value = player.round.get("value");
+    const { player, stage } = this.props;
+    const value = player.round.get(stage.name);
     return (
       <div className="task-response">
         <form onSubmit={this.handleSubmit}>

@@ -3,7 +3,6 @@ import React from "react";
 export default class TaskResponseOptions extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this);
     this.props.player.stage.submit();
   };
 
