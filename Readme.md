@@ -92,8 +92,8 @@ meteor update empirica:core
 
 - [ ] Validation on form submission for three qualities
 - [ ] Loading actual artwork images
-- [ ] Generalize variables to admin treatment factors
-  - [ ] Number of rounds
-  - [ ] Probability of female artist name
-  - [ ] Related artists genders
+- [x] Generalize variables to admin treatment factors
+  - [x] Number of rounds
+  - [x] Probability of female artist name
+  - [x] Related artists genders
 - [ ] Implement social interaction stage

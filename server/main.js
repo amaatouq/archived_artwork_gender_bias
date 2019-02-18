@@ -20,12 +20,19 @@ Empirica.gameInit(game => {
     player.set("score", 0);
   });
 
-  const probFemale = 0.5; // treatment param
+  const roundCount = game.treatment.roundCount || 10;
+  const probFemale = game.treatment.probabilityFemaleArtist || 0.5;
+  const probRelatedFemale = game.treatment.probabilityFemaleRelated || 0.5;
+  const probRelatedMale = game.treatment.probabilityMaleRelated || 1 - probRelatedFemale;
 
-  // this should be parameter in treatments - should be set in admin UI
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < roundCount; i++) {
     const randomArtwork = artData[Math.floor(Math.random()*artData.length)];
     const femaleArtist = Math.random() < probFemale;
+
+    const relatedRandom = Math.random()
+    const femaleRelated = relatedRandom < probRelatedFemale;
+    const maleRelated = !femaleRelated && relatedRandom < probRelatedMale;
+
     const round = game.addRound({
       data: {
         artistGender: femaleArtist ? "female" : "male",
@@ -35,8 +42,18 @@ Empirica.gameInit(game => {
         ,
         title: randomArtwork.title,
         year: "2019",
-        relatedArtists: randomArtwork.relatedArtists.mix,  // randomly select
-        // relatedArtists: male/female/mixed --> export round data
+        relatedArtistsGender: femaleRelated
+          ? "female"
+          : maleRelated
+          ? "male"
+          : "mix"
+        ,
+        relatedArtists: femaleRelated
+          ? randomArtwork.relatedArtists.female
+          : maleRelated
+          ? randomArtwork.relatedArtists.male
+          : randomArtwork.relatedArtists.mix
+        ,
         qualities: randomArtwork.relevantQualties,
         imagePath: randomArtwork.artworkID + ".jpeg"
       }
@@ -46,27 +63,11 @@ Empirica.gameInit(game => {
       round.addStage({
         name: stageName,
         displayName: stage.title,
-        durationInSeconds: 120000, // factor in treatment
+        durationInSeconds: game.treatment.stageLength || 120,
         data: {
           questionText: stage.questionText
         }
       })
     })
   }
-
-  // _.each(taskData, (task, taskName) => {
-  //   const round = game.addRound({
-  //     data: {
-  //       taskName: taskName,
-  //       questionText: task.questionText,
-  //       imagePath: task.path
-  //     }
-  //   });
-  //
-  //   round.addStage({
-  //     name: "response",
-  //     displayName: "Response",
-  //     durationInSeconds: 30000 //game.treatment.stageLength
-  //   });
-  // });
 });
