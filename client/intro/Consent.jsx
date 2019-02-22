@@ -9,15 +9,14 @@ export default class Consent extends React.Component {
         <div className="consent">
           <h1> Consent Form </h1>
           <p>
-            This experiment is part of a MIT scientific project. Your decision
-            to participate in this experiment is entirely voluntary. There are
-            no known or anticipated risks to participating in this experiment.
-            There is no way for us to identify you. The only information we will
-            have, in addition to your responses, is the timestamps of your
-            interactions with our site. The results of our research may be
-            presented at scientific meetings or published in scientific
-            journals. Clicking on the "AGREE" button indicates that you are at
-            least 18 years of age, and agree to participate voluntary.
+            My name is Taylor Brown and I am an academic at Duke University, in the United States.
+The purpose of this survey is to measure the characteristics that make an artwork “attractive.”
+Below you will be shown a series of 10 paintings. For each, you will be asked to first describe the work, and then to indicate how much you like it.
+These are not famous artworks so you will probably be seeing them for the first time. Answer the questions purely based on your first impression. We only ask you to look at each artwork for 30 seconds before answering. You will be given 5 minutes to complete each task.
+You can change your mind at any time and stop completing the survey without consequences.
+If you agree to be part of the research and to research data gathered from this survey being used in academic publication in a form that does not identify you, pelase continue with answering the survey questions.
+If you have concerns about the research that you think I can help you with, please feel free to contact me on [phone number] or at [email address].
+If you would like to talk to someone who is not connected with the research, you my contact the Duke University Research Ethics Officer at [phone number] or at [email address].
           </p>
           <br />
           <ConsentButton text="I AGREE" />
