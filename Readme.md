@@ -96,8 +96,8 @@ meteor update empirica:core
   - [x] Number of rounds
   - [x] Probability of female artist name
   - [x] Related artists genders
-- [ ] Implement social interaction stage
-  - [ ] Player chats in different colors
+- [x] Implement social interaction stage
+  - [x] Player chats in different colors
   - [x] Show previous responses of you/other player
 - [x] Instructions
 - [x] Demographic survey

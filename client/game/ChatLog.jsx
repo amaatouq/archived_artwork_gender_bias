@@ -4,7 +4,6 @@ import Author from "./Author";
 export default class ChatLog extends React.Component {
   state = { comment: "" };
 
-
   handleChange = e => {
     const el = e.currentTarget;
     this.setState({ [el.name]: el.value });
@@ -88,8 +87,8 @@ class Message extends React.Component {
     const { text, subject } = this.props.message;
     const { self } = this.props;
     return (
-      <div className="message">
-        {self ? "You: " : "Other Player: "}
+      <div className={"message " + (self ? "self" : "other")}>
+        <b>{self ? "You: " : "Other Player: "}</b>
         {text}
       </div>
     );

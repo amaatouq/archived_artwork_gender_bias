@@ -17,6 +17,8 @@ Empirica.gameInit(game => {
 
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
+    const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+    player.set("nameColor", randomColor);
   });
 
   const roundCount = game.treatment.roundCount || 10;

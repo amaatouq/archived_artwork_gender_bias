@@ -33,25 +33,20 @@ export default class SocialInteractions extends React.Component {
     const { game, stage, player, round } = this.props;
 
     const otherPlayers = _.reject(game.players, p => p._id === player._id);
-    console.log("otherPlayers", otherPlayers);
-    console.log("chat", stage.get("chat"));
-    // console.log("log", stage.get("log"));
     const messages = stage.get("chat").map(({ text, playerId }) => ({
       text,
       subject: game.players.find(p => p._id === playerId)
     }));
-    // const events = stage.get("log").map(({ subjectId, ...rest }) => ({
-    //   subject: subjectId && game.players.find(p => p._id === subjectId),
-    //   ...rest
-    // }));
 
     const playerResponse = player.round.get(stage.index - 1)
     const otherPlayerResponse = otherPlayers[0].round.get(stage.index - 1);
 
+    console.log({"player color": player.get("nameColor")});
+
     return (
       <div className="social-interactions">
         <div className="status">
-          <div className="total-score bp3-card">
+          <div className="total-score bp3-card" style={{ color: player.get("nameColor") }}>
             <h6 className='bp3-heading'>Your Response: </h6>
 
             <h2 className='bp3-heading'>{playerResponse}</h2>
