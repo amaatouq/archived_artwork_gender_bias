@@ -97,6 +97,9 @@ meteor update empirica:core
   - [x] Probability of female artist name
   - [x] Related artists genders
 - [ ] Implement social interaction stage
+  - [ ] Player chats in different colors
+  - [x] Show previous responses of you/other player
 - [ ] Instructions
 - [ ] Demographic survey
 - [ ] Sample configurations
+- [ ] Blueprint for checkboxes

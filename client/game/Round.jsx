@@ -1,7 +1,7 @@
 import React from "react";
 
 import PlayerProfile from "./PlayerProfile.jsx";
-import SocialExposure from "./SocialExposure.jsx";
+import SocialInteractions from "./SocialInteractions.jsx";
 import Task from "./Task.jsx";
 
 export default class Round extends React.Component {
@@ -13,13 +13,9 @@ export default class Round extends React.Component {
         <div className="content">
           <PlayerProfile player={player} stage={stage} game={game} />
           <Task game={game} round={round} stage={stage} player={player} />
-            {
-              stage.name === "social" ? (
-                <SocialExposure stage={stage} player={player} game={game} />
-              ) : (
-                ""
-              )
-            }
+            {stage.get("type") === "social" ? (
+              <SocialInteractions game={game} stage={stage} player={player} round={round} />
+            ) : null}
         </div>
       </div>
     );

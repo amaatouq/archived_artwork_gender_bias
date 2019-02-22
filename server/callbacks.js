@@ -11,7 +11,9 @@ Empirica.onRoundStart((game, round, players) => {});
 
 // onStageStart is triggered before each stage starts.
 // It receives the same options as onRoundStart, and the stage that is starting.
-Empirica.onStageStart((game, round, stage, players) => {});
+Empirica.onStageStart((game, round, stage, players) => {
+  stage.set("chat", []);
+});
 
 // onStageEnd is triggered after each stage.
 // It receives the same options as onRoundEnd, and the stage that just ended.

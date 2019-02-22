@@ -10,7 +10,7 @@ export default class TaskResponseOptions extends React.Component {
     const { player, round } = this.props;
     const value = player.round.get("value");
     var options = [];
-    _.each(round.get("qualities"), (quality) => {
+    _.each(round.get("relevantQualities"), (quality) => {
       options.push(
         <div className="task-response-option">
           <input

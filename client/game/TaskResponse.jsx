@@ -27,15 +27,15 @@ export default class TaskResponse extends React.Component {
       return this.renderSubmitted();
     }
 
-    if (stage.name == "description") {
+    if (stage.name === "description" || stage.name === "description-social") {
       return (
         <TaskResponseText {...this.props} />
       );
-    } else if (stage.name == "qualities") {
+    } else if (stage.name === "qualities" || stage.name === "qualities-social") {
       return (
         <TaskResponseOptions {...this.props} />
       )
-    } else if (stage.name == "preference") {
+    } else if (stage.name === "preference" || stage.name === "preference-social") {
       return (
         <TaskResponseSlider {...this.props} />
       );

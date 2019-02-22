@@ -5,7 +5,7 @@ export default class TaskResponse extends React.Component {
   handleChangeSlider = num => {
     const { player, stage } = this.props;
     const value = Math.round(num * 100) / 100;
-    player.stage.set(stage.name, value);
+    player.round.set(String(stage.index), value);
   };
 
   handleSubmit = event => {
@@ -15,7 +15,7 @@ export default class TaskResponse extends React.Component {
 
   render() {
     const { player, stage } = this.props;
-    const value = player.stage.get(stage.name);
+    const value = player.round.get(String(stage.index));
     return (
       <div className="task-response">
         <form onSubmit={this.handleSubmit}>

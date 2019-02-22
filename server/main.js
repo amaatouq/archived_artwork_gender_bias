@@ -53,7 +53,7 @@ Empirica.gameInit(game => {
           ? randomArtwork.relatedArtists.male
           : randomArtwork.relatedArtists.mix
         ,
-        qualities: randomArtwork.relevantQualties,
+        relevantQualities: randomArtwork.relevantQualties,
         imagePath: randomArtwork.artworkID + ".jpeg"
       }
     });
@@ -64,9 +64,22 @@ Empirica.gameInit(game => {
         displayName: stage.title,
         durationInSeconds: game.treatment.stageLength || 120,
         data: {
+          type: "solo",
           questionText: stage.questionText
         }
       })
+
+      if (game.players.length > 1) {
+        round.addStage({
+          name: `${stageName}-social`,
+          displayName: `${stage.title} - Social`,
+          durationInSeconds: game.treatment.socialStageLength || 120,
+          data: {
+            type: "social",
+            questionText: stage.questionText
+          }
+        })
+      }
     })
   }
 });

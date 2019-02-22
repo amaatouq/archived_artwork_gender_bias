@@ -4,7 +4,7 @@ export default class TaskResponseText extends React.Component {
   handleChangeText = event => {
     const value = event.currentTarget.value;
     const { player, stage } = this.props;
-    player.round.set(stage.name, value);
+    player.round.set(String(stage.index), value);
   };
 
   handleSubmit = event => {
@@ -14,7 +14,7 @@ export default class TaskResponseText extends React.Component {
 
   render() {
     const { player, stage } = this.props;
-    const value = player.round.get(stage.name);
+    const value = player.round.get(String(stage.index));
     return (
       <div className="task-response">
         <form onSubmit={this.handleSubmit}>
