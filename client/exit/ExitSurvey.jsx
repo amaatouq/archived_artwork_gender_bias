@@ -17,7 +17,7 @@ const Radio = ({ selected, name, value, label, onChange }) => (
 
 export default class ExitSurvey extends React.Component {
   static stepName = "ExitSurvey";
-  state = { age: "", gender: "", strength: "", fair: "", feedback: "" };
+  state = { age: "", gender: "", country: "", visits: "", fair: "", original: "", home: "" };
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -31,24 +31,15 @@ export default class ExitSurvey extends React.Component {
 
   render() {
     const { player } = this.props;
-    const { age, gender, strength, fair, feedback, education } = this.state;
+    const { age, gender, country, visits, fair, original, home, education } = this.state;
 
     return (
       <Centered>
         <div className="exit-survey">
           <h1> Exit Survey </h1>
+
           <p>
-            Please submit the following code to receive your bonus:{" "}
-            <strong>{player._id}</strong>.
-          </p>
-          <p>
-            You final <strong>bonus</strong> is in addition of the{" "}
-            <strong>1 base reward</strong> for completing the HIT.
-          </p>
-          <br />
-          <p>
-            Please answer the following short survey. You do not have to provide
-            any information you feel uncomfortable with.
+            Please answer the following general information questions about yourself:
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
@@ -77,6 +68,20 @@ export default class ExitSurvey extends React.Component {
                     dir="auto"
                     name="gender"
                     value={gender}
+                    onChange={this.handleChange}
+                    autoComplete="off"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="country">Country</label>
+                <div>
+                  <input
+                    id="country"
+                    type="text"
+                    dir="auto"
+                    name="country"
+                    value={country}
                     onChange={this.handleChange}
                     autoComplete="off"
                   />
@@ -118,23 +123,23 @@ export default class ExitSurvey extends React.Component {
               </div>
             </div>
 
-            <div className="form-line thirds">
+            <div className="form-line fourths">
               <div>
-                <label htmlFor="strength">
-                  How would you describe your strength in the game?
+                <label htmlFor="visits">
+                  How often do you visit an art gallery, museum, or exhibition?
                 </label>
                 <div>
                   <textarea
                     dir="auto"
-                    id="strength"
-                    name="strength"
-                    value={strength}
+                    id="visits"
+                    name="visits"
+                    value={visits}
                     onChange={this.handleChange}
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="fair">Do you feel the pay was fair?</label>
+                <label htmlFor="fair">Have you ever attended an art fair?</label>
                 <div>
                   <textarea
                     dir="auto"
@@ -146,15 +151,29 @@ export default class ExitSurvey extends React.Component {
                 </div>
               </div>
               <div>
-                <label htmlFor="feedback">
-                  Feedback, including problems you encountered.
+                <label htmlFor="original">
+                  Have you ever purchased an original work of art?
                 </label>
                 <div>
                   <textarea
                     dir="auto"
-                    id="feedback"
-                    name="feedback"
-                    value={feedback}
+                    id="original"
+                    name="original"
+                    value={original}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="home">
+                  Do you have artwork hanging in your home?
+                </label>
+                <div>
+                  <textarea
+                    dir="auto"
+                    id="home"
+                    name="home"
+                    value={home}
                     onChange={this.handleChange}
                   />
                 </div>
