@@ -99,7 +99,7 @@ meteor update empirica:core
 - [ ] Implement social interaction stage
   - [ ] Player chats in different colors
   - [x] Show previous responses of you/other player
-- [ ] Instructions
-- [ ] Demographic survey
+- [x] Instructions
+- [x] Demographic survey
 - [ ] Sample configurations
 - [x] Blueprint styling for form elements
