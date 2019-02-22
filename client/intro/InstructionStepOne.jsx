@@ -11,10 +11,16 @@ export default class InstructionStepOne extends React.Component {
         <div className="instructions">
           <h1> Instructions 1 </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio,
-            animi? Quae autem asperiores officiis voluptatum fuga recusandae
-            minima! Animi pariatur ex sapiente laborum. Ipsa quo quia ab,
-            veritatis et labore.
+            You will now be asked to describe and state your preference for {game.treatment.roundCount} artwork(s) by living artists.
+          </p>
+          <p>
+            Answer the following questions purely based on your first impression.
+          </p>
+          <p>
+            We only ask you to look at each artwork for 30 seconds before answering.
+          </p>
+          <p>
+            You will be given 5 minutes to complete each task.
           </p>
 
           <p>
