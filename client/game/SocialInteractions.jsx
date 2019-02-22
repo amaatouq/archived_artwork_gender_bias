@@ -29,6 +29,13 @@ export default class SocialInteractions extends React.Component {
     );
   }
 
+  getPreviousRoundResponse(player) {
+    const { round, stage } = this.props;
+    const prevIndex = stage.index - 1;
+    const prevStage = round.stages[prevIndex].name;
+    return player.round.get(prevStage);
+  }
+
   render() {
     const { game, stage, player, round } = this.props;
 
@@ -38,15 +45,13 @@ export default class SocialInteractions extends React.Component {
       subject: game.players.find(p => p._id === playerId)
     }));
 
-    const playerResponse = player.round.get(stage.index - 1)
-    const otherPlayerResponse = otherPlayers[0].round.get(stage.index - 1);
-
-    console.log({"player color": player.get("nameColor")});
+    const playerResponse = this.getPreviousRoundResponse(player);
+    const otherPlayerResponse = this.getPreviousRoundResponse(otherPlayers[0]);
 
     return (
       <div className="social-interactions">
         <div className="status">
-          <div className="total-score bp3-card" style={{ color: player.get("nameColor") }}>
+          <div className="total-score bp3-card">
             <h6 className='bp3-heading'>Your Response: </h6>
 
             <h2 className='bp3-heading'>{playerResponse}</h2>

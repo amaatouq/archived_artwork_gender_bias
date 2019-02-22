@@ -20,7 +20,7 @@ export default class TaskResponseOptions extends React.Component {
     const value = Object.keys(checkedOptions).filter(function(key) {
       return checkedOptions[key] === true;
     });
-    player.round.set(String(stage.index), value.join(', '));
+    player.round.set(stage.name, value.join(', '));
   }
 
   render() {
