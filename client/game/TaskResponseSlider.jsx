@@ -21,9 +21,10 @@ export default class TaskResponse extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <Slider
             min={0}
-            max={1}
+            max={100}
             stepSize={0.01}
-            labelStepSize={0.25}
+            labelStepSize={25}
+            labelPrecision={0}
             onChange={this.handleChangeSlider}
             value={value}
             hideHandleOnEmpty

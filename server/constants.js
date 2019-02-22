@@ -12,6 +12,6 @@ export const stageData = {
   preference: {
     title: "Choose Your Preference",
     questionText:
-      "What is your preference for this artwork?"
+      "What is your preference for this artwork from 0 (least preference) to 100 (most preference)?"
   }
 };

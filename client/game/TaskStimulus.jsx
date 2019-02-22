@@ -19,13 +19,11 @@ export default class TaskStimulus extends React.Component {
           <div className="title-year">{`'${round.get('title')}' (${round.get("year")})`}</div>
           <div className="related-artists">
             <h2>Related Artists</h2>
-            {round.get("relatedArtists").join(', ')}
+            {round.get("relatedArtists").join('\n')}
           </div>
         </div>
         <div className="task-question">
-          <b>Please answer the following question:</b>
-          <br />
-          {questionText == undefined ? "" : questionText}
+          <b>{questionText == undefined ? "" : questionText}</b>
         </div>
       </div>
     );

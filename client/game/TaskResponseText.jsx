@@ -1,4 +1,5 @@
 import React from "react";
+import { TextArea, Intent } from "@blueprintjs/core";
 
 export default class TaskResponseText extends React.Component {
   handleChangeText = event => {
@@ -19,10 +20,11 @@ export default class TaskResponseText extends React.Component {
       <div className="task-response">
         <form onSubmit={this.handleSubmit}>
           <div className="text-input">
-            <textarea
+            <TextArea
+              large={true}
+              intent={Intent.PRIMARY}
               onChange={this.handleChangeText}
               value={value}
-              required
             />
           </div>
 
