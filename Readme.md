@@ -102,4 +102,4 @@ meteor update empirica:core
 - [ ] Instructions
 - [ ] Demographic survey
 - [ ] Sample configurations
-- [ ] Blueprint for checkboxes
+- [x] Blueprint styling for form elements
