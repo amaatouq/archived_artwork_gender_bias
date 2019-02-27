@@ -1,12 +1,27 @@
 import React from "react";
-import { Checkbox } from "@blueprintjs/core";
+import { Checkbox, Toaster, Position } from "@blueprintjs/core";
+
+const WarningToaster = Toaster.create({
+    className: "warning-toaster",
+    position: Position.TOP,
+});
 
 export default class TaskResponseOptions extends React.Component {
   state = { checkedOptions: {} }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.player.stage.submit();
+    const checkedOptions = this.state.checkedOptions;
+    const value = Object.keys(checkedOptions).filter(function(key) {
+      return checkedOptions[key] === true;
+    });
+    if (value.length !== 3) {
+      WarningToaster.show({
+        message: "Please select exactly three qualities."
+      });
+    } else {
+      this.props.player.stage.submit();
+    }
   };
 
   handleChangeCheckbox(quality, event) {

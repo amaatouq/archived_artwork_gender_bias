@@ -1,0 +1,167 @@
+treatments:
+  - name: soloDeveloperTest
+    factorIds:
+      - dtirxQs7NN8Xy8jpu
+      - D5PTkkAFsJyYTJ2d9
+      - AzRtHgGd9Eurxpjwb
+      - xs2dmMRaxLARgyas2
+      - PBKLm64cYiMsDa9SD
+      - PrTE4GcqYMF2Jri3K
+      - FNhY4QYc5FDA4np3m
+  - name: teamDeveloperTest
+    factorIds:
+      - wH8qqvs72MckxdfrS
+      - D5PTkkAFsJyYTJ2d9
+      - AzRtHgGd9Eurxpjwb
+      - xs2dmMRaxLARgyas2
+      - PBKLm64cYiMsDa9SD
+      - PrTE4GcqYMF2Jri3K
+      - FNhY4QYc5FDA4np3m
+factorTypes:
+  - _id: 8BLzfCC2REMaG8vSN
+    name: playerCount
+    description: The Number of players participating in the given game.
+    required: true
+    type: Integer
+    min: 1
+  - _id: PWG9AWrkgTN8nR6Hc
+    name: roundCount
+    description: The Number of rounds (paintings) in the game.
+    required: false
+    type: Integer
+    min: 1
+    max: 50
+  - _id: DfYptaNxGjSdo8z4m
+    name: probabilityFemaleArtist
+    description: The probability that the artist name displayed is female.
+    required: false
+    type: Number
+    min: 0
+    max: 1
+  - _id: p8CseLSzux9CvRhNS
+    name: probabilityFemaleRelated
+    description: The probability that all of the related artist names are female.
+    required: false
+    type: Number
+    min: 0
+    max: 1
+  - _id: NGdFAQk9xLPZ54fwj
+    name: probabilityMaleRelated
+    description: The probability that all of the related artist names are male.
+    required: false
+    type: Number
+    min: 0
+    max: 1
+  - _id: pEoshBb7McqXGWfnw
+    name: stageLength
+    description: The length in seconds of an individual stage.
+    required: false
+    type: Number
+    min: 0
+    max: 12000000
+  - _id: u6BmZrCa6d7nDPaA3
+    name: socialStageLength
+    description: The length in seconds of a social stage.
+    required: false
+    type: Number
+    min: 0
+    max: 12000000
+factors:
+  - _id: dtirxQs7NN8Xy8jpu
+    name: solo
+    value: 1
+    factorTypeId: 8BLzfCC2REMaG8vSN
+  - _id: wH8qqvs72MckxdfrS
+    name: team
+    value: 2
+    factorTypeId: 8BLzfCC2REMaG8vSN
+  - _id: D5PTkkAFsJyYTJ2d9
+    name: oneRound
+    value: 1
+    factorTypeId: PWG9AWrkgTN8nR6Hc
+  - _id: ZJNnrfkGKERREwYLG
+    name: threeRounds
+    value: 3
+    factorTypeId: PWG9AWrkgTN8nR6Hc
+  - _id: oYE7jQSujDNF4div2
+    name: tenRounds
+    value: 10
+    factorTypeId: PWG9AWrkgTN8nR6Hc
+  - _id: AzRtHgGd9Eurxpjwb
+    name: allFemaleArtists
+    value: 1
+    factorTypeId: DfYptaNxGjSdo8z4m
+  - _id: PJJz4wB7bAMwS3tFc
+    name: halfFemaleArtists
+    value: 0.5
+    factorTypeId: DfYptaNxGjSdo8z4m
+  - _id: AueSgaEzhfXWK8cgS
+    name: allMaleArtists
+    value: 0
+    factorTypeId: DfYptaNxGjSdo8z4m
+  - _id: xs2dmMRaxLARgyas2
+    name: allFemaleRelated
+    value: 1
+    factorTypeId: p8CseLSzux9CvRhNS
+  - _id: mPzvdkxdo7XDgfnYN
+    name: halfFemaleRelated
+    value: 0.5
+    factorTypeId: p8CseLSzux9CvRhNS
+  - _id: uJ2gdy5TdiNfC9xEj
+    name: noFemaleRelated
+    value: 0
+    factorTypeId: p8CseLSzux9CvRhNS
+  - _id: emJNwW5c37g7SPJbJ
+    name: allMaleRelated
+    value: 1
+    factorTypeId: NGdFAQk9xLPZ54fwj
+  - _id: nRSmkLntGEY6garms
+    name: halfMaleRelated
+    value: 0.5
+    factorTypeId: NGdFAQk9xLPZ54fwj
+  - _id: PBKLm64cYiMsDa9SD
+    name: noMaleRelated
+    value: 0
+    factorTypeId: NGdFAQk9xLPZ54fwj
+  - _id: dR5dctnzA9vyKocLp
+    name: thirdFemaleRelated
+    value: 0.33
+    factorTypeId: p8CseLSzux9CvRhNS
+  - _id: Fxzqcauqq97uEHNNd
+    name: thirdMaleRelated
+    value: 0.33
+    factorTypeId: NGdFAQk9xLPZ54fwj
+  - _id: CvpcjHKkqp78FD7Dk
+    name: twoMinutes
+    value: 120
+    factorTypeId: pEoshBb7McqXGWfnw
+  - _id: juA8RgoNmFc7Rxs9R
+    name: oneMinute
+    value: 60
+    factorTypeId: pEoshBb7McqXGWfnw
+  - _id: dyhCYM4iwBbHWGzYT
+    name: fiveMinutes
+    value: 300
+    factorTypeId: pEoshBb7McqXGWfnw
+  - _id: DoPPwJ7vuRn9XKGsP
+    name: twoMinutes
+    value: 120
+    factorTypeId: u6BmZrCa6d7nDPaA3
+  - _id: EGsYJBA8vtAKAJ5JS
+    name: tenMinutes
+    value: 600
+    factorTypeId: u6BmZrCa6d7nDPaA3
+  - _id: FNhY4QYc5FDA4np3m
+    name: maxLength
+    value: 12000000
+    factorTypeId: u6BmZrCa6d7nDPaA3
+  - _id: PrTE4GcqYMF2Jri3K
+    name: maxLength
+    value: 12000000
+    factorTypeId: pEoshBb7McqXGWfnw
+lobbyConfigs:
+  - name: longTimeout
+    timeoutType: lobby
+    timeoutInSeconds: 3000
+    timeoutStrategy: fail
+    gameLobbyIds: []
