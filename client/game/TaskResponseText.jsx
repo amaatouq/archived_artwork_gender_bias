@@ -8,12 +8,18 @@ export default class TaskResponseText extends React.Component {
     const { player, stage, readonly } = this.props;
     if (!readonly) {
       const value = event.currentTarget.value;
-      player.round.set(stage.name, value);
+      player.round.set(stage.name, "*" + value + "*");
     }
   };
 
   handleSubmit = event => {
     event.preventDefault();
+    const { player, stage } = this.props;
+    var value = player.round.get(stage.name);
+    if (value) {
+      value = value.slice(1, -1);
+      player.round.set(stage.name, value);
+    }
     this.props.player.stage.submit();
   };
 
@@ -27,10 +33,13 @@ export default class TaskResponseText extends React.Component {
   render() {
     const { player, stage, readonly } = this.props;
     var value = player.round.get(stage.name);
+    if (value) {
+      value = value.slice(1, -1);
+    }
 
     if (this.state.prepopulate && stage.get("type") === "social") {
       value = this.getPreviousRoundResponse(player);
-      player.round.set(stage.name, value);
+      player.round.set(stage.name, "*" + value + "*");
       this.state.prepopulate = false;
     }
     return (
