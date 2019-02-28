@@ -2,6 +2,8 @@ import React from "react";
 import { TextArea, Intent } from "@blueprintjs/core";
 
 export default class TaskResponseText extends React.Component {
+  state = { prepopulate: true }
+
   handleChangeText = event => {
     const value = event.currentTarget.value;
     const { player, stage } = this.props;
@@ -13,9 +15,21 @@ export default class TaskResponseText extends React.Component {
     this.props.player.stage.submit();
   };
 
+  getPreviousRoundResponse(player) {
+    const { round, stage } = this.props;
+    const prevIndex = stage.index - 1;
+    const prevStage = round.stages[prevIndex].name;
+    return player.round.get(prevStage);
+  }
+
   render() {
     const { player, stage } = this.props;
-    const value = player.round.get(stage.name);
+    var value = player.round.get(stage.name);
+
+    if (this.state.prepopulate && stage.get("type") === "social") {
+      value = this.getPreviousRoundResponse(player);
+      this.state.prepopulate = false;
+    }
     return (
       <div className="task-response">
         <form onSubmit={this.handleSubmit}>

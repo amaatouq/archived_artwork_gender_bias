@@ -7,7 +7,7 @@ const WarningToaster = Toaster.create({
 });
 
 export default class TaskResponseOptions extends React.Component {
-  state = { checkedOptions: {} }
+  state = { checkedOptions: {}, prepopulate: true }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -38,8 +38,25 @@ export default class TaskResponseOptions extends React.Component {
     player.round.set(stage.name, value.join(', '));
   }
 
+  getPreviousRoundResponse(player) {
+    const { round, stage } = this.props;
+    const prevIndex = stage.index - 1;
+    const prevStage = round.stages[prevIndex].name;
+    return player.round.get(prevStage);
+  }
+
   render() {
     const { player, round, stage } = this.props;
+
+    if (this.state.prepopulate && stage.get("type") === "social") {
+      const prevResponse = this.getPreviousRoundResponse(player);
+      const prevValues = prevResponse.split(", ");
+      _.each(prevValues, (quality) => {
+        this.state.checkedOptions[quality] = true;
+      });
+      this.state.prepopulate = false;
+    }
+
     var options = [];
     _.each(round.get("relevantQualities"), (quality) => {
       options.push(

@@ -25,7 +25,7 @@ export default class InstructionStepOne extends React.Component {
 
           <button
             type="button"
-            className="bp3-button bp3-intent-nope bp3-icon-double-chevron-left"
+            className="bp3-button bp3-intent-nope"
             onClick={onPrev}
             disabled={!hasPrev}
           >
@@ -38,7 +38,7 @@ export default class InstructionStepOne extends React.Component {
             disabled={!hasNext}
           >
             Next
-            <span className="bp3-icon-standard bp3-icon-double-chevron-right bp3-align-right" />
+            <span className="bp3-icon-standard bp3-align-right" />
           </button>
         </div>
       </Centered>

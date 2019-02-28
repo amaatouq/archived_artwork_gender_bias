@@ -103,7 +103,7 @@ meteor update empirica:core
 - [x] Demographic survey
 - [x] Sample configurations
 - [x] Blueprint styling for form elements
-- [ ] Prepopulate with individual stage answer
+- [x] Prepopulate with individual stage answer
 - [ ] Style the Other Player's response the same way
 - [ ] Show other player's response changing in real time
 - [x] Separate out the chat
