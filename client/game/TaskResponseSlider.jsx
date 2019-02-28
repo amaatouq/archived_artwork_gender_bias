@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "meteor/empirica:slider";
 
 export default class TaskResponse extends React.Component {
-  state = { prepopulate: true }
+  state = { prepopulate: true };
 
   handleChangeSlider = num => {
     const { player, stage, readonly } = this.props;
@@ -48,7 +48,13 @@ export default class TaskResponse extends React.Component {
             hideHandleOnEmpty
           />
 
-          {readonly ? "" : <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>}
+          {readonly ? (
+            ""
+          ) : (
+            <button className="bp3-button bp3-intent-primary" type="submit">
+              Submit
+            </button>
+          )}
         </form>
       </div>
     );

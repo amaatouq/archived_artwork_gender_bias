@@ -11,13 +11,16 @@ export default class InstructionStepOne extends React.Component {
         <div className="instructions">
           <h1> Solo Instructions </h1>
           <p className="bp3-ui-text">
-            You will now be asked to describe and state your preference for {game.treatment.roundCount} artwork(s) by living artists.
+            You will now be asked to describe and state your preference for{" "}
+            {game.treatment.roundCount} artwork(s) by living artists.
           </p>
           <p className="bp3-ui-text">
-            Answer the following questions purely based on your first impression.
+            Answer the following questions purely based on your first
+            impression.
           </p>
           <p className="bp3-ui-text">
-            We only ask you to look at each artwork for 30 seconds before answering.
+            We only ask you to look at each artwork for 30 seconds before
+            answering.
           </p>
           <p className="bp3-ui-text">
             You will be given 5 minutes to complete each task.

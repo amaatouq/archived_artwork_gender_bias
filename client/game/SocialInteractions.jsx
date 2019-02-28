@@ -11,7 +11,9 @@ export default class SocialInteractions extends React.Component {
         <span className="image">
           <span
             className={`satisfied bp3-tag bp3-round ${
-              player.get("satisfied") ? "bp3-intent-success" : "bp3-intent-danger"
+              player.get("satisfied")
+                ? "bp3-intent-success"
+                : "bp3-intent-danger"
             }`}
           >
             <span
@@ -62,15 +64,15 @@ export default class SocialInteractions extends React.Component {
       <div className="social-interactions">
         <div className="status">
           <div className="total-score bp3-card">
-            <h6 className='bp3-heading'>Other Player's Response: </h6>
+            <h6 className="bp3-heading">Other Player's Response: </h6>
 
-            {
-              stage.name === "description-social"
-              ? <TaskResponseText {...otherPlayerProps} />
-              : stage.name === "qualities-social"
-              ? <TaskResponseOptions {...otherPlayerProps} />
-              : <TaskResponseSlider {...otherPlayerProps} />
-            }
+            {stage.name === "description-social" ? (
+              <TaskResponseText {...otherPlayerProps} />
+            ) : stage.name === "qualities-social" ? (
+              <TaskResponseOptions {...otherPlayerProps} />
+            ) : (
+              <TaskResponseSlider {...otherPlayerProps} />
+            )}
           </div>
         </div>
 

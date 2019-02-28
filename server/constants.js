@@ -1,8 +1,7 @@
 export const stageData = {
   description: {
     title: "Describe",
-    questionText:
-      "In 200 words or less, please describe this artwork:"
+    questionText: "In 200 words or less, please describe this artwork:"
   },
   qualities: {
     title: "Choose Qualities",

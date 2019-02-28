@@ -14,23 +14,24 @@ import artData from "./toy_data.json";
 // rounds and stages (with get/set methods), that will be able to use later in
 // the game.
 Empirica.gameInit(game => {
-
   game.players.forEach((player, i) => {
     player.set("avatar", `/avatars/jdenticon/${player._id}`);
-    const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
+    const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
     player.set("nameColor", randomColor);
   });
 
   const roundCount = game.treatment.roundCount || 10;
   const probFemale = game.treatment.probabilityFemaleArtist || 0.5;
   const probRelatedFemale = game.treatment.probabilityFemaleRelated || 0.5;
-  const probRelatedMale = game.treatment.probabilityMaleRelated || 1 - probRelatedFemale;
+  const probRelatedMale =
+    game.treatment.probabilityMaleRelated || 1 - probRelatedFemale;
 
-  for (var i = 0; i < roundCount; i++) {
-    const randomArtwork = artData[Math.floor(Math.random()*artData.length)];
+  for (let i = 0; i < roundCount; i++) {
+    //it is better to use _.shuffle() outside the loop to shuffle things .. so we don't sample the same art work twice
+    const randomArtwork = artData[i];
     const femaleArtist = Math.random() < probFemale;
 
-    const relatedRandom = Math.random()
+    const relatedRandom = Math.random();
     const femaleRelated = relatedRandom < probRelatedFemale;
     const maleRelated = !femaleRelated && relatedRandom < probRelatedMale;
 
@@ -39,24 +40,21 @@ Empirica.gameInit(game => {
         artistGender: femaleArtist ? "female" : "male",
         artistName: femaleArtist
           ? randomArtwork.artistGender.female[0]
-          : randomArtwork.artistGender.male[0]
-        ,
+          : randomArtwork.artistGender.male[0],
         title: randomArtwork.title,
         year: "2019",
         relatedArtistsGender: femaleRelated
           ? "female"
           : maleRelated
-          ? "male"
-          : "mix"
-        ,
+            ? "male"
+            : "mix",
         relatedArtists: femaleRelated
           ? randomArtwork.relatedArtists.female
           : maleRelated
-          ? randomArtwork.relatedArtists.male
-          : randomArtwork.relatedArtists.mix
-        ,
+            ? randomArtwork.relatedArtists.male
+            : randomArtwork.relatedArtists.mix,
         relevantQualities: randomArtwork.relevantQualties,
-        imagePath: randomArtwork.artworkID + ".jpeg"
+        imagePath: randomArtwork.imagepath
       }
     });
 
@@ -69,7 +67,7 @@ Empirica.gameInit(game => {
           type: "solo",
           questionText: stage.questionText
         }
-      })
+      });
 
       if (game.players.length > 1) {
         round.addStage({
@@ -80,8 +78,8 @@ Empirica.gameInit(game => {
             type: "social",
             questionText: stage.questionText
           }
-        })
+        });
       }
-    })
+    });
   }
 });

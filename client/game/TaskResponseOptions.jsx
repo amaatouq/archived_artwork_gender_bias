@@ -2,12 +2,12 @@ import React from "react";
 import { Checkbox, Toaster, Position } from "@blueprintjs/core";
 
 const WarningToaster = Toaster.create({
-    className: "warning-toaster",
-    position: Position.TOP,
+  className: "warning-toaster",
+  position: Position.TOP
 });
 
 export default class TaskResponseOptions extends React.Component {
-  state = { checkedOptions: {}, prepopulate: true }
+  state = { checkedOptions: {}, prepopulate: true };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -36,7 +36,7 @@ export default class TaskResponseOptions extends React.Component {
       const value = Object.keys(checkedOptions).filter(function(key) {
         return checkedOptions[key] === true;
       });
-      player.round.set(stage.name, value.join(', '));
+      player.round.set(stage.name, value.join(", "));
     }
   }
 
@@ -56,23 +56,23 @@ export default class TaskResponseOptions extends React.Component {
     if (this.state.prepopulate && stage.get("type") === "social") {
       const prevResponse = this.getPreviousRoundResponse(player);
       const prevValues = prevResponse.split(", ");
-      _.each(prevValues, (quality) => {
+      _.each(prevValues, quality => {
         this.state.checkedOptions[quality] = true;
         checkedQualities.push(quality);
       });
-      player.round.set(stage.name, checkedQualities.join(', '));
+      player.round.set(stage.name, checkedQualities.join(", "));
       this.state.prepopulate = false;
     }
 
     var options = [];
-    _.each(round.get("relevantQualities"), (quality) => {
+    _.each(round.get("relevantQualities"), quality => {
       options.push(
         <div className="task-response-option">
           <Checkbox
             key={quality}
             checked={checkedQualities.includes(quality)}
             label={quality}
-            onChange={(event) => this.handleChangeCheckbox(quality, event)}
+            onChange={event => this.handleChangeCheckbox(quality, event)}
           />
         </div>
       );
@@ -83,7 +83,13 @@ export default class TaskResponseOptions extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {options}
 
-          {readonly ? "" : <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>}
+          {readonly ? (
+            ""
+          ) : (
+            <button className="bp3-button bp3-intent-primary" type="submit">
+              Submit
+            </button>
+          )}
         </form>
       </div>
     );

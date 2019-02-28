@@ -4,8 +4,6 @@ import TaskResponseText from "./TaskResponseText";
 import TaskResponseOptions from "./TaskResponseOptions";
 import TaskResponseSlider from "./TaskResponseSlider";
 
-import Slider from "meteor/empirica:slider";
-
 export default class TaskResponse extends React.Component {
   renderSubmitted() {
     return (
@@ -26,17 +24,17 @@ export default class TaskResponse extends React.Component {
     }
 
     if (stage.name === "description" || stage.name === "description-social") {
-      return (
-        <TaskResponseText {...this.props} />
-      );
-    } else if (stage.name === "qualities" || stage.name === "qualities-social") {
-      return (
-        <TaskResponseOptions {...this.props} />
-      )
-    } else if (stage.name === "preference" || stage.name === "preference-social") {
-      return (
-        <TaskResponseSlider {...this.props} />
-      );
+      return <TaskResponseText {...this.props} />;
+    } else if (
+      stage.name === "qualities" ||
+      stage.name === "qualities-social"
+    ) {
+      return <TaskResponseOptions {...this.props} />;
+    } else if (
+      stage.name === "preference" ||
+      stage.name === "preference-social"
+    ) {
+      return <TaskResponseSlider {...this.props} />;
     }
   }
 }

@@ -26,7 +26,15 @@ import {
 
 export default class ExitSurvey extends React.Component {
   static stepName = "ExitSurvey";
-  state = { age: "", gender: "", country: "", visits: "", fair: "", original: "", home: "" };
+  state = {
+    age: "",
+    gender: "",
+    country: "",
+    visits: "",
+    fair: "",
+    original: "",
+    home: ""
+  };
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -40,7 +48,16 @@ export default class ExitSurvey extends React.Component {
 
   render() {
     const { player } = this.props;
-    const { age, gender, country, visits, fair, original, home, education } = this.state;
+    const {
+      age,
+      gender,
+      country,
+      visits,
+      fair,
+      original,
+      home,
+      education
+    } = this.state;
 
     return (
       <Centered>
@@ -48,7 +65,8 @@ export default class ExitSurvey extends React.Component {
           <h1 className="bp3-heading"> Exit Survey </h1>
 
           <p className="bp3-ui-text">
-            Please answer the following general information questions about yourself:
+            Please answer the following general information questions about
+            yourself:
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
@@ -153,7 +171,9 @@ export default class ExitSurvey extends React.Component {
               <FormGroup
                 className={"form-group"}
                 inline={false}
-                label={"How often do you visit an art gallery, museum, or exhibition?"}
+                label={
+                  "How often do you visit an art gallery, museum, or exhibition?"
+                }
                 labelFor={"visits"}
               >
                 <TextArea
@@ -223,7 +243,9 @@ export default class ExitSurvey extends React.Component {
               </FormGroup>
             </div>
 
-            <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>
+            <button className="bp3-button bp3-intent-primary" type="submit">
+              Submit
+            </button>
           </form>
         </div>
       </Centered>

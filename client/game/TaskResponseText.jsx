@@ -2,7 +2,7 @@ import React from "react";
 import { TextArea, Intent } from "@blueprintjs/core";
 
 export default class TaskResponseText extends React.Component {
-  state = { prepopulate: true }
+  state = { prepopulate: true };
 
   handleChangeText = event => {
     const { player, stage, readonly } = this.props;
@@ -55,7 +55,13 @@ export default class TaskResponseText extends React.Component {
             />
           </div>
 
-          {readonly ? "" : <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>}
+          {readonly ? (
+            ""
+          ) : (
+            <button className="bp3-button bp3-intent-primary" type="submit">
+              Submit
+            </button>
+          )}
         </form>
       </div>
     );
