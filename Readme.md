@@ -59,7 +59,7 @@ Now the **_Batchs_** tab make sure you add a new batch, add the treatments you w
 
 [batches-img]: ./readme_screenshots/new_batch.png
 
-Go to `http://localhost:3000/` and enjoy! If you don't have 3 friends to play with you, you always can use the `new player` button in development (for more details see this), which can add an arbitrary number players to the experiment while staying in the same browser (i.e., no need to open different browsers).
+Go to `http://localhost:3000/` and enjoy! If you don't have another friend to play with you, you always can use the `new player` button in development (for more details see this), which can add an arbitrary number players to the experiment while staying in the same browser (i.e., no need to open different browsers).
 
 ![game][game-img]
 
