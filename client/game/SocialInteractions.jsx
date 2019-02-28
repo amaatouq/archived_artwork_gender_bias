@@ -1,5 +1,8 @@
 import React from "react";
 import ChatLog from "./ChatLog";
+import TaskResponseText from "./TaskResponseText";
+import TaskResponseOptions from "./TaskResponseOptions";
+import TaskResponseSlider from "./TaskResponseSlider";
 
 export default class SocialInteractions extends React.Component {
   renderPlayer(player, self = false) {
@@ -48,19 +51,26 @@ export default class SocialInteractions extends React.Component {
     const playerResponse = this.getPreviousRoundResponse(player);
     const otherPlayerResponse = this.getPreviousRoundResponse(otherPlayers[0]);
 
+    const otherPlayerProps = {
+      player: otherPlayers[0],
+      round: round,
+      stage: stage,
+      readonly: true
+    };
+
     return (
       <div className="social-interactions">
         <div className="status">
           <div className="total-score bp3-card">
-            <h6 className='bp3-heading'>Your Response: </h6>
-
-            <h2 className='bp3-heading'>{playerResponse}</h2>
-          </div>
-
-          <div className="total-score bp3-card">
             <h6 className='bp3-heading'>Other Player's Response: </h6>
 
-            <h2 className='bp3-heading'>{otherPlayerResponse}</h2>
+            {
+              stage.name === "description-social"
+              ? <TaskResponseText {...otherPlayerProps} />
+              : stage.name === "qualities-social"
+              ? <TaskResponseOptions {...otherPlayerProps} />
+              : <TaskResponseSlider {...otherPlayerProps} />
+            }
           </div>
         </div>
 

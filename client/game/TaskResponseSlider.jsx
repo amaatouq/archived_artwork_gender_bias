@@ -5,9 +5,11 @@ export default class TaskResponse extends React.Component {
   state = { prepopulate: true }
 
   handleChangeSlider = num => {
-    const { player, stage } = this.props;
-    const value = Math.round(num * 100) / 100;
-    player.round.set(stage.name, value);
+    const { player, stage, readonly } = this.props;
+    if (!readonly) {
+      const value = Math.round(num * 100) / 100;
+      player.round.set(stage.name, value);
+    }
   };
 
   handleSubmit = event => {
@@ -23,7 +25,7 @@ export default class TaskResponse extends React.Component {
   }
 
   render() {
-    const { player, stage } = this.props;
+    const { player, stage, readonly } = this.props;
     var value = player.round.get(stage.name);
 
     if (this.state.prepopulate && stage.get("type") === "social") {
@@ -45,7 +47,7 @@ export default class TaskResponse extends React.Component {
             hideHandleOnEmpty
           />
 
-          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
+          {readonly ? "" : <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>}
         </form>
       </div>
     );

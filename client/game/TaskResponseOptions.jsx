@@ -25,17 +25,19 @@ export default class TaskResponseOptions extends React.Component {
   };
 
   handleChangeCheckbox(quality, event) {
-    const { player, stage } = this.props;
-    if (this.state.checkedOptions[quality]) {
-      this.state.checkedOptions[quality] = false;
-    } else {
-      this.state.checkedOptions[quality] = true;
+    const { player, stage, readonly } = this.props;
+    if (!readonly) {
+      if (this.state.checkedOptions[quality]) {
+        this.state.checkedOptions[quality] = false;
+      } else {
+        this.state.checkedOptions[quality] = true;
+      }
+      const checkedOptions = this.state.checkedOptions;
+      const value = Object.keys(checkedOptions).filter(function(key) {
+        return checkedOptions[key] === true;
+      });
+      player.round.set(stage.name, value.join(', '));
     }
-    const checkedOptions = this.state.checkedOptions;
-    const value = Object.keys(checkedOptions).filter(function(key) {
-      return checkedOptions[key] === true;
-    });
-    player.round.set(stage.name, value.join(', '));
   }
 
   getPreviousRoundResponse(player) {
@@ -46,13 +48,17 @@ export default class TaskResponseOptions extends React.Component {
   }
 
   render() {
-    const { player, round, stage } = this.props;
+    const { player, round, stage, readonly } = this.props;
+
+    const value = player.round.get(stage.name);
+    const checkedQualities = value ? value.split(", ") : []
 
     if (this.state.prepopulate && stage.get("type") === "social") {
       const prevResponse = this.getPreviousRoundResponse(player);
       const prevValues = prevResponse.split(", ");
       _.each(prevValues, (quality) => {
         this.state.checkedOptions[quality] = true;
+        checkedQualities.push(quality);
       });
       this.state.prepopulate = false;
     }
@@ -62,7 +68,7 @@ export default class TaskResponseOptions extends React.Component {
       options.push(
         <div className="task-response-option">
           <Checkbox
-            checked={this.state.checkedOptions[quality] || false}
+            checked={checkedQualities.includes(quality)}
             label={quality}
             onChange={(event) => this.handleChangeCheckbox(quality, event)}
           />
@@ -75,7 +81,7 @@ export default class TaskResponseOptions extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {options}
 
-          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
+          {readonly ? "" : <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>}
         </form>
       </div>
     );

@@ -5,9 +5,11 @@ export default class TaskResponseText extends React.Component {
   state = { prepopulate: true }
 
   handleChangeText = event => {
-    const value = event.currentTarget.value;
-    const { player, stage } = this.props;
-    player.round.set(stage.name, value);
+    const { player, stage, readonly } = this.props;
+    if (!readonly) {
+      const value = event.currentTarget.value;
+      player.round.set(stage.name, value);
+    }
   };
 
   handleSubmit = event => {
@@ -23,7 +25,7 @@ export default class TaskResponseText extends React.Component {
   }
 
   render() {
-    const { player, stage } = this.props;
+    const { player, stage, readonly } = this.props;
     var value = player.round.get(stage.name);
 
     if (this.state.prepopulate && stage.get("type") === "social") {
@@ -35,6 +37,7 @@ export default class TaskResponseText extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="text-input">
             <TextArea
+              className={readonly ? "" : "readonly"}
               large={true}
               intent={Intent.PRIMARY}
               onChange={this.handleChangeText}
@@ -42,7 +45,7 @@ export default class TaskResponseText extends React.Component {
             />
           </div>
 
-          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
+          {readonly ? "" : <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>}
         </form>
       </div>
     );

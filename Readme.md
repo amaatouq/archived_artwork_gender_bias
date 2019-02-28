@@ -104,8 +104,8 @@ meteor update empirica:core
 - [x] Sample configurations
 - [x] Blueprint styling for form elements
 - [x] Prepopulate with individual stage answer
-- [ ] Style the Other Player's response the same way
-- [ ] Show other player's response changing in real time
+- [x] Style the Other Player's response the same way
+- [x] Show other player's response changing in real time
 - [x] Separate out the chat
 - [x] Blueprint UI components (buttons, text)
 - [ ] Loading actual artwork images
