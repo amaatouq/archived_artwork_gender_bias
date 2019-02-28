@@ -87,7 +87,7 @@ class Message extends React.Component {
     const { text, subject } = this.props.message;
     const { self } = this.props;
     return (
-      <div className={"message " + (self ? "self" : "other")}>
+      <div className={"message b3-ui-text " + (self ? "self" : "other")}>
         <b>{self ? "You: " : "Other Player: "}</b>
         {text}
       </div>

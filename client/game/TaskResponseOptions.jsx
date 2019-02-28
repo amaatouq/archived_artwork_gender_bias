@@ -58,7 +58,7 @@ export default class TaskResponseOptions extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {options}
 
-          <button type="submit">Submit</button>
+          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
         </form>
       </div>
     );

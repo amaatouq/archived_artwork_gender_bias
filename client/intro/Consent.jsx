@@ -1,14 +1,15 @@
 import React from "react";
 
 import { Centered, ConsentButton } from "meteor/empirica:core";
+import { H1, Classes } from "@blueprintjs/core";
 
 export default class Consent extends React.Component {
   render() {
     return (
       <Centered>
         <div className="consent">
-          <h1> Consent Form </h1>
-          <p>
+          <H1> Consent Form </H1>
+          <p class="bp3-ui-text">
             My name is Taylor Brown and I am an academic at Duke University, in the United States.
 The purpose of this survey is to measure the characteristics that make an artwork “attractive.”
 Below you will be shown a series of 10 paintings. For each, you will be asked to first describe the work, and then to indicate how much you like it.

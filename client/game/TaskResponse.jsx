@@ -11,7 +11,7 @@ export default class TaskResponse extends React.Component {
     return (
       <div className="task-response">
         <div className="response-submitted">
-          <h5>Waiting on other players...</h5>
+          <h5 className="bp3-heading">Waiting on other players...</h5>
           Please wait until all players are ready
         </div>
       </div>

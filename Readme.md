@@ -91,9 +91,7 @@ meteor update empirica:core
 ## Tasks
 
 - [ ] Readme explaining how to download and run experiment
-- [ ] Validation on form submission for three qualities (Toast if more attempted)
-- [ ] Blueprint UI components (buttons, text)
-- [ ] Loading actual artwork images
+- [x] Validation on form submission for three qualities (Toast if more attempted)
 - [x] Generalize variables to admin treatment factors
   - [x] Number of rounds
   - [x] Probability of female artist name
@@ -101,11 +99,13 @@ meteor update empirica:core
 - [x] Implement social interaction stage
   - [x] Player chats in different colors
   - [x] Show previous responses of you/other player
-- [ ] Prepopulate with individual stage answer
-- [ ] Style the Other Player's response the same way
-- [ ] Show other player's response changing in real time
-- [ ] Separate out the chat
 - [x] Instructions
 - [x] Demographic survey
 - [x] Sample configurations
 - [x] Blueprint styling for form elements
+- [ ] Prepopulate with individual stage answer
+- [ ] Style the Other Player's response the same way
+- [ ] Show other player's response changing in real time
+- [x] Separate out the chat
+- [x] Blueprint UI components (buttons, text)
+- [ ] Loading actual artwork images

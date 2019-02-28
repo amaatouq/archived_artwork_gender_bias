@@ -30,7 +30,7 @@ export default class TaskResponse extends React.Component {
             hideHandleOnEmpty
           />
 
-          <button type="submit">Submit</button>
+          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
         </form>
       </div>
     );

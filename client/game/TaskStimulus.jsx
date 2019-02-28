@@ -15,14 +15,14 @@ export default class TaskStimulus extends React.Component {
           {imagePath == undefined ? "" : <img src={imagePath} height={"300px"} />}
         </div>
         <div className="task-information">
-          <div className="artist">{round.get("artistName")}</div>
-          <div className="title-year">{`'${round.get('title')}' (${round.get("year")})`}</div>
-          <div className="related-artists">
-            <h2>Related Artists</h2>
+          <h1 className="artist bp3-heading">{round.get("artistName")}</h1>
+          <div className="title-year bp3-ui-text">{`'${round.get('title')}' (${round.get("year")})`}</div>
+          <div className="related-artists bp3-ui-text">
+            <h2 className="bp3-heading">Related Artists</h2>
             {round.get("relatedArtists").join('\n')}
           </div>
         </div>
-        <div className="task-question">
+        <div className="task-question bp3-ui-text">
           <b>{questionText == undefined ? "" : questionText}</b>
         </div>
       </div>

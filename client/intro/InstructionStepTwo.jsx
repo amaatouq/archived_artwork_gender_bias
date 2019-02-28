@@ -16,14 +16,23 @@ export default class InstructionStepTwo extends React.Component {
             veritatis et labore.
           </p>
 
-          <p>
-            <button type="button" onClick={onPrev} disabled={!hasPrev}>
-              Previous
-            </button>
-            <button type="button" onClick={onNext} disabled={!hasNext}>
-              Next
-            </button>
-          </p>
+          <button
+            type="button"
+            className="bp3-button bp3-intent-nope bp3-icon-double-chevron-left"
+            onClick={onPrev}
+            disabled={!hasPrev}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            className="bp3-button bp3-intent-primary"
+            onClick={onNext}
+            disabled={!hasNext}
+          >
+            Next
+            <span className="bp3-icon-standard bp3-icon-double-chevron-right bp3-align-right" />
+          </button>
         </div>
       </Centered>
     );

@@ -28,7 +28,7 @@ export default class TaskResponseText extends React.Component {
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
         </form>
       </div>
     );
