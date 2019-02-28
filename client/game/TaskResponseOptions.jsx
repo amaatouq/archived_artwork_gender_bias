@@ -51,7 +51,7 @@ export default class TaskResponseOptions extends React.Component {
     const { player, round, stage, readonly } = this.props;
 
     const value = player.round.get(stage.name);
-    const checkedQualities = value ? value.split(", ") : []
+    const checkedQualities = value ? value.split(", ") : [];
 
     if (this.state.prepopulate && stage.get("type") === "social") {
       const prevResponse = this.getPreviousRoundResponse(player);
@@ -60,6 +60,7 @@ export default class TaskResponseOptions extends React.Component {
         this.state.checkedOptions[quality] = true;
         checkedQualities.push(quality);
       });
+      player.round.set(stage.name, checkedQualities.join(', '));
       this.state.prepopulate = false;
     }
 
@@ -68,6 +69,7 @@ export default class TaskResponseOptions extends React.Component {
       options.push(
         <div className="task-response-option">
           <Checkbox
+            key={quality}
             checked={checkedQualities.includes(quality)}
             label={quality}
             onChange={(event) => this.handleChangeCheckbox(quality, event)}
@@ -81,7 +83,7 @@ export default class TaskResponseOptions extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {options}
 
-          {readonly ? "" : <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>}
+          {readonly ? "" : <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>}
         </form>
       </div>
     );

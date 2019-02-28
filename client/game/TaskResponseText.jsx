@@ -30,6 +30,7 @@ export default class TaskResponseText extends React.Component {
 
     if (this.state.prepopulate && stage.get("type") === "social") {
       value = this.getPreviousRoundResponse(player);
+      player.round.set(stage.name, value);
       this.state.prepopulate = false;
     }
     return (
@@ -45,7 +46,7 @@ export default class TaskResponseText extends React.Component {
             />
           </div>
 
-          {readonly ? "" : <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>}
+          {readonly ? "" : <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>}
         </form>
       </div>
     );

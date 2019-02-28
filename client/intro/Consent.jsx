@@ -9,7 +9,7 @@ export default class Consent extends React.Component {
       <Centered>
         <div className="consent">
           <H1> Consent Form </H1>
-          <p class="bp3-ui-text">
+          <p className="bp3-ui-text">
             My name is Taylor Brown and I am an academic at Duke University, in the United States.
 The purpose of this survey is to measure the characteristics that make an artwork “attractive.”
 Below you will be shown a series of 10 paintings. For each, you will be asked to first describe the work, and then to indicate how much you like it.

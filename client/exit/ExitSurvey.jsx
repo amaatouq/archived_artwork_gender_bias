@@ -223,7 +223,7 @@ export default class ExitSurvey extends React.Component {
               </FormGroup>
             </div>
 
-            <button class="bp3-button bp3-intent-primary" type="submit">Submit</button>
+            <button className="bp3-button bp3-intent-primary" type="submit">Submit</button>
           </form>
         </div>
       </Centered>

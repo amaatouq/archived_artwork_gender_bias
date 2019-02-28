@@ -20,8 +20,6 @@ export default class TaskResponse extends React.Component {
 
   render() {
     const { player, round, stage } = this.props;
-    // console.log({"player": player, "round": round, "stage": stage});
-
     // If the player already submitted, don't show the slider or submit button
     if (player.stage.submitted) {
       return this.renderSubmitted();

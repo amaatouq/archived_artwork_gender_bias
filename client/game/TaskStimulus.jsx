@@ -3,7 +3,6 @@ import React from "react";
 export default class TaskStimulus extends React.Component {
   render() {
     const { round, stage, player } = this.props;
-    // console.log({"player": player, "round": round, "stage": stage});
 
     // const imagePath = round.get("imagePath");
     // const imagePath = require("/client/game/data/" + round.get("imagePath"));

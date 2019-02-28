@@ -8,7 +8,7 @@ export default class InstructionStepTwo extends React.Component {
     return (
       <Centered>
         <div className="instructions">
-          <h1> Instructions 2 </h1>
+          <h1> Team Instructions </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio,
             animi? Quae autem asperiores officiis voluptatum fuga recusandae
