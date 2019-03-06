@@ -9,6 +9,7 @@ import InstructionStepTwo from "./intro/InstructionStepTwo";
 import Quiz from "./intro/Quiz";
 import ExitSurvey from "./exit/ExitSurvey";
 import Thanks from "./exit/Thanks";
+import Sorry from "./exit/Sorry";
 
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);
@@ -39,6 +40,9 @@ Empirica.round(Round);
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
 Empirica.exitSteps((game, player) => {
+  if (player.exitStatus !== "finished") {
+    return [Sorry];
+  }
   return [ExitSurvey, Thanks];
 });
 
