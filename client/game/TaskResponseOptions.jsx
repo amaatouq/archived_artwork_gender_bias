@@ -72,6 +72,7 @@ export default class TaskResponseOptions extends React.Component {
             key={quality}
             checked={checkedQualities.includes(quality)}
             label={quality}
+            disabled={readonly}
             onChange={event => this.handleChangeCheckbox(quality, event)}
           />
         </div>

@@ -45,6 +45,7 @@ export default class TaskResponse extends React.Component {
             labelPrecision={0}
             onChange={this.handleChangeSlider}
             value={value}
+            disabled={readonly}
             hideHandleOnEmpty
           />
 

@@ -49,7 +49,7 @@ export default class TaskResponseText extends React.Component {
             <TextArea
               className={readonly ? "" : "readonly"}
               large={true}
-              intent={Intent.PRIMARY}
+              intent={readonly ? "" : Intent.PRIMARY}
               onChange={this.handleChangeText}
               value={value}
             />
