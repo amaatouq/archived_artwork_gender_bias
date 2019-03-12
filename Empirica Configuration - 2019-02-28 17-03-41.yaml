@@ -68,27 +68,27 @@ factorTypes:
     max: 12000000
 factors:
   - _id: meN9ofzfswDcARPqa
-    name: solo
+    name: 1
     value: 1
     factorTypeId: p2XsPeiwemNGwwbR3
   - _id: 5k8SoyZxMyuJSQvbp
-    name: dyad
+    name: 2
     value: 2
     factorTypeId: p2XsPeiwemNGwwbR3
   - _id: ER3JHkPCJZXrrjxbH
-    name: group
+    name: 3
     value: 3
     factorTypeId: p2XsPeiwemNGwwbR3
   - _id: HSaviQYhtHQbuuowD
-    name: short
+    name: 3
     value: 3
     factorTypeId: PWG9AWrkgTN8nR6Hc
   - _id: QkbsZs8jTKgxwbvLv
-    name: long
+    name: 10
     value: 10
     factorTypeId: PWG9AWrkgTN8nR6Hc
   - _id: xZiisde3KGRydLRBo
-    name: '0.5'
+    name: 0.5
     value: 0.5
     factorTypeId: DfYptaNxGjSdo8z4m
   - _id: CphqLGRiKNYFDdZeH
