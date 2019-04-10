@@ -1,5 +1,10 @@
 import React from "react";
-import { TextArea, Intent } from "@blueprintjs/core";
+import { TextArea, Intent, Checkbox, Toaster, Position } from "@blueprintjs/core";
+
+const WarningToaster = Toaster.create({
+  className: "warning-toaster",
+  position: Position.TOP
+});
 
 export default class TaskResponseText extends React.Component {
   state = { prepopulate: true };
@@ -20,7 +25,13 @@ export default class TaskResponseText extends React.Component {
       value = value.slice(1, -1);
       player.round.set(stage.name, value);
     }
-    this.props.player.stage.submit();
+    if (!value || value.length === 0) {
+      WarningToaster.show({
+        message: "Please provide a description."
+      });
+    } else {
+      this.props.player.stage.submit();
+    }
   };
 
   getPreviousRoundResponse(player) {
@@ -60,7 +71,7 @@ export default class TaskResponseText extends React.Component {
             ""
           ) : (
             <button className="bp3-button bp3-intent-primary" type="submit">
-              Submit
+              Next
             </button>
           )}
         </form>

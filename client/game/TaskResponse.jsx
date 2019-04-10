@@ -2,6 +2,7 @@ import React from "react";
 
 import TaskResponseText from "./TaskResponseText";
 import TaskResponseOptions from "./TaskResponseOptions";
+import TaskResponseValue from "./TaskResponseValue";
 import TaskResponseSlider from "./TaskResponseSlider";
 
 export default class TaskResponse extends React.Component {
@@ -30,6 +31,11 @@ export default class TaskResponse extends React.Component {
       stage.name === "qualities-social"
     ) {
       return <TaskResponseOptions {...this.props} />;
+    } else if (
+      stage.name === "value" ||
+      stage.name === "value-social"
+    ) {
+      return <TaskResponseValue {...this.props} />;
     } else if (
       stage.name === "preference" ||
       stage.name === "preference-social"

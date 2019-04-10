@@ -27,13 +27,24 @@ export default class TaskResponseOptions extends React.Component {
   handleChangeCheckbox(quality, event) {
     const { player, stage, readonly } = this.props;
     if (!readonly) {
+      var checkedOptions = this.state.checkedOptions;
+      var value = Object.keys(checkedOptions).filter(function(key) {
+        return checkedOptions[key] === true;
+      });
+      if (value.length === 3 && !this.state.checkedOptions[quality]) {
+        WarningToaster.show({
+          message: "Please select exactly three qualities."
+        });
+        return;
+      }
+
       if (this.state.checkedOptions[quality]) {
         this.state.checkedOptions[quality] = false;
       } else {
         this.state.checkedOptions[quality] = true;
       }
-      const checkedOptions = this.state.checkedOptions;
-      const value = Object.keys(checkedOptions).filter(function(key) {
+      checkedOptions = this.state.checkedOptions;
+      value = Object.keys(checkedOptions).filter(function(key) {
         return checkedOptions[key] === true;
       });
       player.round.set(stage.name, value.join(", "));
@@ -88,7 +99,7 @@ export default class TaskResponseOptions extends React.Component {
             ""
           ) : (
             <button className="bp3-button bp3-intent-primary" type="submit">
-              Submit
+              Next
             </button>
           )}
         </form>

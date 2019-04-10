@@ -3,7 +3,7 @@ import React from "react";
 import { Centered } from "meteor/empirica:core";
 
 export default class Quiz extends React.Component {
-  state = { sum: "", horse: "" };
+  state = { living: "", outside: "" };
 
   handleChange = event => {
     const el = event.currentTarget;
@@ -13,7 +13,7 @@ export default class Quiz extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    if (this.state.sum !== "4" || this.state.horse !== "white") {
+    if (this.state.living !== "yes" || this.state.outside !== "no") {
       alert("Incorrect! Read the instructions, and please try again.");
     } else {
       this.props.onNext();
@@ -22,37 +22,37 @@ export default class Quiz extends React.Component {
 
   render() {
     const { hasPrev, hasNext, onNext, onPrev } = this.props;
-    const { sum, horse } = this.state;
+    const { living, outside } = this.state;
     return (
       <Centered>
         <div className="quiz">
           <h1> Quiz </h1>
           <form onSubmit={this.handleSubmit}>
             <p>
-              <label htmlFor="sum">What is 2+2?</label>
+              <label htmlFor="living">Are the artworks you will see by living artists?</label>
               <input
                 type="text"
                 dir="auto"
-                id="sum"
-                name="sum"
-                placeholder="e.g. 3"
-                value={sum}
+                id="living"
+                name="living"
+                placeholder="yes / no"
+                value={living}
                 onChange={this.handleChange}
                 autoComplete="off"
                 required
               />
             </p>
             <p>
-              <label htmlFor="horse">
-                What color was Napoleon's white horse?
+              <label htmlFor="outside">
+                Should you reference outside materials in completing this survey?
               </label>
               <input
                 type="text"
                 dir="auto"
-                id="horse"
-                name="horse"
-                placeholder="e.g. brown"
-                value={horse}
+                id="outside"
+                name="outside"
+                placeholder="yes / no"
+                value={outside}
                 onChange={this.handleChange}
                 autoComplete="off"
                 required
@@ -63,7 +63,7 @@ export default class Quiz extends React.Component {
               <button type="button" onClick={onPrev} disabled={!hasPrev}>
                 Back to instructions
               </button>
-              <button type="submit">Submit</button>
+              <button type="submit">Next</button>
             </p>
           </form>
         </div>

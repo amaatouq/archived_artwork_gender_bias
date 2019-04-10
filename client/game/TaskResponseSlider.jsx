@@ -53,7 +53,7 @@ export default class TaskResponse extends React.Component {
             ""
           ) : (
             <button className="bp3-button bp3-intent-primary" type="submit">
-              Submit
+              Next
             </button>
           )}
         </form>

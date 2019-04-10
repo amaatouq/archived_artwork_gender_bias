@@ -27,13 +27,12 @@ import {
 export default class ExitSurvey extends React.Component {
   static stepName = "ExitSurvey";
   state = {
-    age: "",
-    gender: "",
-    country: "",
     visits: "",
     fair: "",
     original: "",
-    home: ""
+    home: "",
+    creative: "",
+    jobTitle: ""
   };
 
   handleChange = event => {
@@ -49,14 +48,12 @@ export default class ExitSurvey extends React.Component {
   render() {
     const { player } = this.props;
     const {
-      age,
-      gender,
-      country,
       visits,
       fair,
       original,
       home,
-      education
+      creative,
+      jobTitle
     } = this.state;
 
     return (
@@ -70,177 +67,151 @@ export default class ExitSurvey extends React.Component {
           </p>
           <form onSubmit={this.handleSubmit}>
             <div className="form-line">
-              <FormGroup
-                inline={true}
-                label={"Age"}
-                labelFor={"age"}
-                className={"form-group"}
-              >
-                <input
-                  id="age"
-                  className={Classes.INPUT}
-                  type="number"
-                  min="0"
-                  max="150"
-                  step="1"
-                  dir="auto"
-                  name="age"
-                  value={age}
-                  onChange={this.handleChange}
-                  // required
-                />
-              </FormGroup>
-
-              <FormGroup
-                inline={true}
-                label={"Gender"}
-                labelFor={"gender"}
-                className={"form-group"}
-              >
-                <input
-                  id="gender"
-                  className={Classes.INPUT}
-                  type="text"
-                  dir="auto"
-                  name="gender"
-                  value={gender}
-                  onChange={this.handleChange}
-                  // required
-                />
-              </FormGroup>
-
-              <FormGroup
-                inline={true}
-                label={"Country"}
-                labelFor={"country"}
-                className={"form-group"}
-              >
-                <input
-                  id="country"
-                  className={Classes.INPUT}
-                  type="text"
-                  dir="auto"
-                  name="country"
-                  value={country}
-                  onChange={this.handleChange}
-                  // required
-                />
-              </FormGroup>
-            </div>
-
-            <div className="form-line">
               <RadioGroup
                 inline={false}
-                name="education"
-                label="Highest Education Qualification?"
+                label="How often do you visit an art gallery, museum, or exhibition?"
+                name="visits"
                 onChange={this.handleChange}
-                selectedValue={education}
+                selectedValue={visits}
               >
                 <Radio
-                  selected={education}
-                  name="education"
-                  value="high-school"
-                  label="High School"
+                  selected={visits}
+                  name="visits"
+                  value="never"
+                  label="Never"
                   onChange={this.handleChange}
                 />
                 <Radio
-                  selected={education}
-                  name="education"
-                  value="bachelor"
-                  label="US Bachelor's Degree"
+                  selected={visits}
+                  name="visits"
+                  value="month"
+                  label="At least once a month"
                   onChange={this.handleChange}
                 />
                 <Radio
-                  selected={education}
-                  name="education"
-                  value="master"
-                  label="Master's or higher"
-                  onChange={this.handleChange}
-                />
-                <Radio
-                  selected={education}
-                  name="education"
-                  value="other"
-                  label="Other"
+                  selected={visits}
+                  name="visits"
+                  value="year"
+                  label="A few times a year"
                   onChange={this.handleChange}
                 />
               </RadioGroup>
             </div>
 
-            <div className="form-line fourths">
-              <FormGroup
-                className={"form-group"}
+            <div className="form-line">
+              <RadioGroup
                 inline={false}
-                label={
-                  "How often do you visit an art gallery, museum, or exhibition?"
-                }
-                labelFor={"visits"}
+                label="Have you ever attended an art fair?"
+                name="fair"
+                onChange={this.handleChange}
+                selectedValue={fair}
               >
-                <TextArea
-                  dir="auto"
-                  id="visits"
-                  large={true}
-                  intent={Intent.PRIMARY}
-                  onChange={this.handleChange}
-                  value={visits}
-                  fill={true}
-                  name="visits"
-                />
-              </FormGroup>
-
-              <FormGroup
-                className={"form-group"}
-                inline={false}
-                label={"Have you ever attended an art fair?"}
-                labelFor={"visits"}
-              >
-                <TextArea
-                  dir="auto"
-                  id="fair"
-                  large={true}
-                  intent={Intent.PRIMARY}
-                  onChange={this.handleChange}
-                  value={fair}
-                  fill={true}
+                <Radio
+                  selected={fair}
                   name="fair"
-                />
-              </FormGroup>
-
-              <FormGroup
-                className={"form-group"}
-                inline={false}
-                label={"Have you ever purchased an original work of art?"}
-                labelFor={"original"}
-              >
-                <TextArea
-                  dir="auto"
-                  id="original"
-                  large={true}
-                  intent={Intent.PRIMARY}
+                  value="yes"
+                  label="Yes"
                   onChange={this.handleChange}
-                  value={original}
-                  fill={true}
+                />
+                <Radio
+                  selected={fair}
+                  name="fair"
+                  value="no"
+                  label="No"
+                  onChange={this.handleChange}
+                />
+              </RadioGroup>
+            </div>
+
+            <div className="form-line">
+              <RadioGroup
+                inline={false}
+                label="Have you ever purchased an original work of art (i.e. not a copy)?"
+                name="original"
+                onChange={this.handleChange}
+                selectedValue={original}
+              >
+                <Radio
+                  selected={original}
                   name="original"
-                />
-              </FormGroup>
-
-              <FormGroup
-                className={"form-group"}
-                inline={false}
-                label={"Do you have artwork hanging in your home?"}
-                labelFor={"original"}
-              >
-                <TextArea
-                  dir="auto"
-                  id="home"
-                  large={true}
-                  intent={Intent.PRIMARY}
+                  value="yes"
+                  label="Yes"
                   onChange={this.handleChange}
-                  value={home}
-                  fill={true}
-                  name="home"
                 />
-              </FormGroup>
+                <Radio
+                  selected={original}
+                  name="original"
+                  value="no"
+                  label="No"
+                  onChange={this.handleChange}
+                />
+              </RadioGroup>
+            </div>
+
+            <div className="form-line">
+              <RadioGroup
+                inline={false}
+                label="Do you have artwork (original or copy) hanging in your home?"
+                name="home"
+                onChange={this.handleChange}
+                selectedValue={home}
+              >
+                <Radio
+                  selected={home}
+                  name="home"
+                  value="yes"
+                  label="Yes"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={original}
+                  name="home"
+                  value="no"
+                  label="No"
+                  onChange={this.handleChange}
+                />
+              </RadioGroup>
+            </div>
+
+            <div className="form-line">
+              <RadioGroup
+                inline={false}
+                label="Do you work in a creative industry?"
+                name="creative"
+                onChange={this.handleChange}
+                selectedValue={creative}
+              >
+                <Radio
+                  selected={creative}
+                  name="creative"
+                  value="yes"
+                  label="Yes"
+                  onChange={this.handleChange}
+                />
+                <Radio
+                  selected={creative}
+                  name="creative"
+                  value="no"
+                  label="No"
+                  onChange={this.handleChange}
+                />
+              </RadioGroup>
+            </div>
+
+            <div className="form-line">
+              <div>
+                <label htmlFor="jobTitle">If yes, please provide your job title (e.g. museum curator, artist, etc)</label>
+                <div>
+                  <input
+                    id="jobTitle"
+                    type="text"
+                    dir="auto"
+                    name="jobTitle"
+                    value={jobTitle}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
             </div>
 
             <button className="bp3-button bp3-intent-primary" type="submit">
